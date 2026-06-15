@@ -17,7 +17,14 @@ from telegram.ext import Application, CommandHandler, ContextTypes
 
 # ============ SOZLAMALAR ============
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "8950532180:AAEHDGIcobPIr2gMm0zw4c9j27wa5K8BArE")
-MANAGER_CHAT_ID = int(os.environ.get("MANAGER_CHAT_ID", "7242956193"))
+
+# 8:20 da xabar keladigan ID lar ro'yxati.
+# Yangi odam qo'shish: pastga vergul bilan ID yozing (masalan menejer ID si).
+OLUVCHILAR = [
+    7242956193,      # Abbosxon (siz)
+    525237955,       # Menejer
+]
+
 SOAT, DAQIQA = 8, 20
 TZ = ZoneInfo("Asia/Tashkent")
 TG_LIMIT = 4000
@@ -1140,8 +1147,12 @@ async def hafta(update, context):
 
 async def kunlik_yuborish(context):
     matn = hisobot(kun_nomi(0), sana(0))
-    for qism in bolib_yubor(matn):
-        await context.bot.send_message(chat_id=MANAGER_CHAT_ID, text=qism, parse_mode=ParseMode.HTML)
+    for oluvchi in OLUVCHILAR:
+        try:
+            for qism in bolib_yubor(matn):
+                await context.bot.send_message(chat_id=oluvchi, text=qism, parse_mode=ParseMode.HTML)
+        except Exception as e:
+            logging.warning("Xabar yuborilmadi (%s): %s", oluvchi, e)
 
 
 def main():

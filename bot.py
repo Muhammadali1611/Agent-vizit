@@ -33,7 +33,7 @@ TG_LIMIT = 4000
 logging.basicConfig(level=logging.INFO)
 
 KUNLAR = ["Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba", "Yakshanba"]
-AGENT_TARTIB = ["Abduqodir aka", "Atxamjon aka", "Abdumalik aka", "Ibrohimjon aka"]
+AGENT_TARTIB = ["Abduqodir aka", "Atxamjon aka", "Abdumalik aka", "Abbos aka", "Ibrohimjon aka"]
 
 JADVAL = {
     "Dushanba": {
@@ -158,6 +158,80 @@ JADVAL = {
             "lavozim": "Peno supervizor",
             "region": "Andijon",
             "clients": []
+        },
+        "Abbos aka": {
+            "lavozim": "Peno agent",
+            "region": "Dangara, G'urumsaroy",
+            "clients": [
+                [
+                    "F44 Ilxom aka Oqjar ''B\" PENA",
+                    "AAA"
+                ],
+                [
+                    "F47 Nozimaka Oqjar ''B'' PENA",
+                    "BBA"
+                ],
+                [
+                    "F49 Shahlo apa Oqjar, Elmurod aka ''B'' PENA NAQT",
+                    "CCA"
+                ],
+                [
+                    "F54 Yoqubjon aka Naymancha ''B'' PENA",
+                    "AAA"
+                ],
+                [
+                    "Royal market Dang`ara \"X\"",
+                    "CCC"
+                ],
+                [
+                    "F105 Ro'zmatjon amaki Qizil musht '' Yangi Naxt '' PENA NAQT",
+                    "CCA"
+                ],
+                [
+                    "F200 G'iyosjon aka Qirqlar Yangi klent '' PENA ''",
+                    "CCA"
+                ],
+                [
+                    "F55 Ahadjon aka G'urumsaroy Bravo \"B\"",
+                    "AAB"
+                ],
+                [
+                    "F56 Faxriddin aka G`urumsaroy \"A\"",
+                    "CCA"
+                ],
+                [
+                    "F57 Nazir aka G'urumsaroy Biora \"B\"",
+                    "AAB"
+                ],
+                [
+                    "F58 Nazir aka G'urumsaroy Vodiy \"C\"",
+                    "CBA"
+                ],
+                [
+                    "F59 Oybekaka G'urumsaroy Zamin \"B\"",
+                    "AAA"
+                ],
+                [
+                    "F61 Sharofiddin Aka Yangiobod POP \"B\"Bravo Biora Ferre",
+                    "AAA"
+                ],
+                [
+                    "F62 Hasanboy aka G'urumsaroy Roshal/ eco Delta \"B\"",
+                    "AAA"
+                ],
+                [
+                    "F63 Yo'ldoshali aka Pungon eco Gerta \"A\" PENA",
+                    "AAA"
+                ],
+                [
+                    "F64 Ahror aka G'urumsaroy \"C\"",
+                    "BBA"
+                ],
+                [
+                    "F94 Rustam aka G'urumsaroy \"A\"",
+                    "AAA"
+                ]
+            ]
         }
     },
     "Seshanba": {
@@ -294,6 +368,32 @@ JADVAL = {
             "lavozim": "Peno supervizor",
             "region": "Andijon",
             "clients": []
+        },
+        "Abbos aka": {
+            "lavozim": "Peno agent",
+            "region": "Pop, Chust, To'raqurg'on, Jomoshuy",
+            "clients": [
+                [
+                    "F29 Hasanboy aka Chust ''B''",
+                    "AAA"
+                ],
+                [
+                    "F35 Yoqubjon aka Chust Bravo \"B\"",
+                    "AAB"
+                ],
+                [
+                    "F96 Kamoliddin Aka Chust ''A''",
+                    "AAB"
+                ],
+                [
+                    "F76 Abdurasul aka Pop Hilol \"B\"",
+                    "AAB"
+                ],
+                [
+                    "F86 Xurshid aka Pop Humo Biora \"C\" PENA \"X\"",
+                    "CCA"
+                ]
+            ]
         }
     },
     "Chorshanba": {
@@ -428,8 +528,62 @@ JADVAL = {
         },
         "Ibrohimjon aka": {
             "lavozim": "Peno supervizor",
-            "region": "Pop + Chust + Dangara + G'urumsaroy",
+            "region": "Bog'dod, Rishton, Oltiariq, Marg'ilon, Chimyon, Quva",
             "clients": []
+        },
+        "Abbos aka": {
+            "lavozim": "Peno agent",
+            "region": "Buvayda, Bachqir",
+            "clients": [
+                [
+                    "B13 Farhod aka Bachqir Zamin ''C\" NAQT",
+                    "CCA"
+                ],
+                [
+                    "B16 Nodir aka Bachqir \"C\"",
+                    "BBA"
+                ],
+                [
+                    "B18 Saidxon aka Bachqir Hilol \"C\"",
+                    "AAA"
+                ],
+                [
+                    "B22 Mirabdulla aka Urganji ''C'' pena",
+                    "BBB"
+                ],
+                [
+                    "B23 Mirzahakim aka Uchko'prik \"C\"",
+                    "BBA"
+                ],
+                [
+                    "B24 Abbosxon aka Buvayda \"X\"",
+                    ""
+                ],
+                [
+                    "B29 Zufar aka Buvaydi Miltiqchi Biora \"C\"",
+                    "BAA"
+                ],
+                [
+                    "B30 Abbos aka 104 Buvayda \"B\" Hilol PENA",
+                    "BBB"
+                ],
+                [
+                    "B31 Sanjar aka Buvayda Sobirjon qishlog'i \"C\"",
+                    "BBB"
+                ],
+                [
+                    "B108 Islom Aka Buvayda Sobirjon q/i PENA \"B\"",
+                    "AAC"
+                ],
+                [
+                    "B25 Otabek Oq qo'rgon Buvayda \"B\"",
+                    "AAA"
+                ],
+                [
+                    "B167 Iqbol Aka Buvayda ''STROY SENTR'' PENA \"A\"",
+                    "AAA"
+                ]
+            ]
         }
     },
     "Payshanba": {
@@ -528,8 +682,90 @@ JADVAL = {
         },
         "Ibrohimjon aka": {
             "lavozim": "Peno supervizor",
-            "region": "Namangan + To'raqo'rg'on",
+            "region": "Pop, Chust, To'raqurg'on, Jomoshuy, Dangara, G'urumsaroy",
             "clients": []
+        },
+        "Abbos aka": {
+            "lavozim": "Peno agent",
+            "region": "Uchko'prik, Yangiqurg'on",
+            "clients": [
+                [
+                    "B163 Diyor aka Kenagas ''100'' Hilol",
+                    "BBA"
+                ],
+                [
+                    "B35 Ahrorjon aka Mexrigiyo \"C\"",
+                    "BAA"
+                ],
+                [
+                    "B36 Davlat aka Quqonboy Bravo PENAPLAST \"X\"",
+                    "CCB"
+                ],
+                [
+                    "B37 Fozil aka Yoyilma \"B\" PENA",
+                    "BBB"
+                ],
+                [
+                    "B41 Iqbol aka Uchko'prik Biora \"B\"",
+                    "BBB"
+                ],
+                [
+                    "B42 Jamol aka Kenagas \"B\" \"X\"",
+                    "CCA"
+                ],
+                [
+                    "B43 Jahongir aka Kenagaz \"X\" \"C\"",
+                    "CCC"
+                ],
+                [
+                    "B47 Muslim Aka Katta Qoshtepa \"C\" PENA",
+                    "BBA"
+                ],
+                [
+                    "B49 Qobil aka Sariqo'rg'on ''C''",
+                    "BBA"
+                ],
+                [
+                    "B54 ZamZamAli Aka Sariqqo'rg'on \"B\" PENA",
+                    "AAB"
+                ],
+                [
+                    "B53 Xurshid aka Uchkuprik Kattaqashqar \"C\"",
+                    "BBA"
+                ],
+                [
+                    "B56 Zohitjon aka Nurafshon",
+                    ""
+                ],
+                [
+                    "B69 Javlonbek Aka Nurafshon Bog'dod \"B\"",
+                    "AAA"
+                ],
+                [
+                    "B61 Abdumajid aka Yangiqo'rg'on Zamin \"B\" Delta PENA",
+                    "AAB"
+                ],
+                [
+                    "B62 Akramjon aka Yangiqo'rg'on Matqulobod \"C\" Korella",
+                    "AAA"
+                ],
+                [
+                    "B68 Iqbol aka Yangiqo'rg'on \"C\"",
+                    "AAB"
+                ],
+                [
+                    "B73 Shavkat aka Yangiqo'rg'on Hilol \"C\"",
+                    "BBA"
+                ],
+                [
+                    "B109 Abduvoxid Aka Yangi Qo'rg'on Matqulobod ''Yangi Naqd''",
+                    ""
+                ],
+                [
+                    "B71 Muxriddin aka Matqulobod \"C\"",
+                    "BBA"
+                ]
+            ]
         }
     },
     "Shanba": {
@@ -676,8 +912,62 @@ JADVAL = {
         },
         "Ibrohimjon aka": {
             "lavozim": "Peno supervizor",
-            "region": "Buvayda + Bachqir + Uchkuprik + Yangiqurg'on",
+            "region": "Beshariq, Goriski, Rapqon, Yaypan",
             "clients": []
+        },
+        "Abbos aka": {
+            "lavozim": "Peno agent",
+            "region": "Beshariq, Goriski",
+            "clients": [
+                [
+                    "D13 To'lqinjon aka Beshariq \"C\" NAQT",
+                    "CCA"
+                ],
+                [
+                    "D135 Shukur aka Beshariq Muhtasham \"PENA",
+                    "AAA"
+                ],
+                [
+                    "D2 Abror aka Beshariq Toshariq \"C\" Delta Biora PENA",
+                    "BBA"
+                ],
+                [
+                    "D4 Beshariq Uzboy Abror \"B\" Hilol 6.5$PENA",
+                    "AAB"
+                ],
+                [
+                    "D8 Nematjon aka Beshariq \"C\" NAQT",
+                    "CCA"
+                ],
+                [
+                    "D20 Abror aka Goriskiy Yo'li \"NAQT'' PENA",
+                    "BBA"
+                ],
+                [
+                    "D24 Ikrom aka Goriskiy \"B\"",
+                    "AAB"
+                ],
+                [
+                    "D26 Rahmatillo aka Goriskiy Oqchangal \"C\"",
+                    "AAB"
+                ],
+                [
+                    "D29 Vohid aka Goriskiy \"N\" \"X\"",
+                    "CCA"
+                ],
+                [
+                    "D138 Olimjon Aka Gorskiy YANGI ' PENO \" NAQT",
+                    "CBA"
+                ],
+                [
+                    "Namangan To'raqurg'on (Plast yuksak)",
+                    ""
+                ],
+                [
+                    "F71 Bekzod Aka Namangan Biora Delta \"B\"",
+                    "AAA"
+                ]
+            ]
         }
     },
     "Yakshanba": {
@@ -784,8 +1074,74 @@ JADVAL = {
         },
         "Ibrohimjon aka": {
             "lavozim": "Peno supervizor",
-            "region": "Rapqon yayapan Beshariq + Goriski",
+            "region": "Namangan",
             "clients": []
+        },
+        "Abbos aka": {
+            "lavozim": "Peno agent",
+            "region": "Rapqon, Yaypan",
+            "clients": [
+                [
+                    "D49 Fayzullo aka Rapqon ''B''",
+                    "AAA"
+                ],
+                [
+                    "D52 Sardor aka Rapqon ''C'' Corella Xumo NAQT",
+                    "CCC"
+                ],
+                [
+                    "D55 Ismoil aka Nursux \"X\" \"CBA\"",
+                    ""
+                ],
+                [
+                    "D141 Azizbek Aka Rapqon ''NAQD''",
+                    ""
+                ],
+                [
+                    "D54 Temur Aka Tagob \"C\"",
+                    "BBA"
+                ],
+                [
+                    "D101 Muhammadjon aka Yakkatut \"C\" NAQT",
+                    "CCA"
+                ],
+                [
+                    "D103 Abbosxon Amaki Yaypan \"A\" NAQT",
+                    "CCA"
+                ],
+                [
+                    "D104 Abdujabbor aka Yaypan ''B\" Roshal Fendi",
+                    "AAA"
+                ],
+                [
+                    "D108 G'ayrat aka Yaypan ''B'' VASKO PENA",
+                    "AAB"
+                ],
+                [
+                    "D110 Muxammadsolih aka Yaypan ''B''",
+                    "AAA"
+                ],
+                [
+                    "D112 Oybek aka Yaypan \"C\"",
+                    "BBA"
+                ],
+                [
+                    "D113 Qahramon aka Yaypan ''C'' pena NAQT",
+                    "CCA"
+                ],
+                [
+                    "D115 Sardor aka Yaypan 777 ''C'' Zamin eco Humo 6.5$",
+                    "CCA"
+                ],
+                [
+                    "D118 Sulaymon aka Yaypan ''C''Alfa ECO Delta",
+                    "CCA"
+                ],
+                [
+                    "D134 Sardor aka Yaypan Stroy bozor \"C\" PENA",
+                    "AAA"
+                ]
+            ]
         }
     }
 }

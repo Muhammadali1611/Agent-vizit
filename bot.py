@@ -33,13 +33,13 @@ TG_LIMIT = 4000
 logging.basicConfig(level=logging.INFO)
 
 KUNLAR = ["Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba", "Yakshanba"]
-AGENT_TARTIB = ["Abduqodir aka", "Atxamjon aka", "Abdumalik aka", "Abbos aka", "Ibrohimjon aka"]
+AGENT_TARTIB = ["Abduqodir aka", "Muhammadamin aka", "Atxamjon aka", "Abdumalik aka", "Abbos aka", "Ibrohimjon aka"]
 
 JADVAL = {
     "Dushanba": {
         "Abduqodir aka": {
             "lavozim": "Concrete agent",
-            "region": "Bog'dod, Rishton",
+            "region": "Bog'dod, Rishton, Yangiqo'rg'on",
             "clients": [
                 [
                     "Murodjon Aka Bogdod",
@@ -87,6 +87,16 @@ JADVAL = {
                 ],
                 [
                     "Abdumajid aka Yangiqo'rg'on",
+                    "A"
+                ]
+            ]
+        },
+        "Muhammadamin aka": {
+            "lavozim": "Concrete agent",
+            "region": "Chust, To'raqo'rg'on, Koson, So'y",
+            "clients": [
+                [
+                    "qaxramon aka tora qurgon",
                     "A"
                 ]
             ]
@@ -153,11 +163,6 @@ JADVAL = {
                     ""
                 ]
             ]
-        },
-        "Ibrohimjon aka": {
-            "lavozim": "Peno supervizor",
-            "region": "Andijon",
-            "clients": []
         },
         "Abbos aka": {
             "lavozim": "Peno agent",
@@ -232,12 +237,17 @@ JADVAL = {
                     "AAA"
                 ]
             ]
+        },
+        "Ibrohimjon aka": {
+            "lavozim": "Peno supervizor",
+            "region": "Andijon",
+            "clients": []
         }
     },
     "Seshanba": {
-        "Abduqodir aka": {
+        "Muhammadamin aka": {
             "lavozim": "Concrete agent",
-            "region": "Pop, G'urumsaroy, Chust, To'raqo'rg'on",
+            "region": "Pop, G'urumsaroy, Pungon",
             "clients": [
                 [
                     "Abdurasul Aka Pop",
@@ -285,10 +295,6 @@ JADVAL = {
                 ],
                 [
                     "Muhammadjon aka Jomashuv",
-                    "A"
-                ],
-                [
-                    "qaxramon aka tora qurgon",
                     "A"
                 ]
             ]
@@ -364,11 +370,6 @@ JADVAL = {
                 ]
             ]
         },
-        "Ibrohimjon aka": {
-            "lavozim": "Peno supervizor",
-            "region": "Andijon",
-            "clients": []
-        },
         "Abbos aka": {
             "lavozim": "Peno agent",
             "region": "Pop, Chust, To'raqurg'on, Jomoshuy",
@@ -394,12 +395,55 @@ JADVAL = {
                     "CCA"
                 ]
             ]
+        },
+        "Ibrohimjon aka": {
+            "lavozim": "Peno supervizor",
+            "region": "Andijon",
+            "clients": []
         }
     },
     "Chorshanba": {
         "Abduqodir aka": {
             "lavozim": "Concrete agent",
-            "region": "Dangara, Qo'qon, Pungon (So'x - har 15 kunda 1 marta)",
+            "region": "So'x (har 15 kunda 1 marta)",
+            "clients": [
+                [
+                    "Nixol Aka Sox",
+                    "A"
+                ],
+                [
+                    "Abduraxmon Aka Sox",
+                    "A"
+                ],
+                [
+                    "Sanjar Aka Sox",
+                    "B"
+                ],
+                [
+                    "Nasim Aka Sox 24 96",
+                    "A"
+                ],
+                [
+                    "Nasim Aka Sox 49 42",
+                    "A"
+                ],
+                [
+                    "Oybek Aka Sox",
+                    "B"
+                ],
+                [
+                    "Alisher aka so'x",
+                    "B"
+                ],
+                [
+                    "Nuriddin Aka Sox",
+                    "B"
+                ]
+            ]
+        },
+        "Muhammadamin aka": {
+            "lavozim": "Concrete agent",
+            "region": "Dangara, Oqjar",
             "clients": [
                 [
                     "Dilshod Aka Chagali",
@@ -432,38 +476,6 @@ JADVAL = {
                 [
                     "Bilolxon Dangara",
                     "A"
-                ],
-                [
-                    "Nixol Aka Sox",
-                    "A"
-                ],
-                [
-                    "Abduraxmon Aka Sox",
-                    "A"
-                ],
-                [
-                    "Sanjar Aka Sox",
-                    "B"
-                ],
-                [
-                    "Nasim Aka Sox 24 96",
-                    "A"
-                ],
-                [
-                    "Nasim Aka Sox 49 42",
-                    "A"
-                ],
-                [
-                    "Oybek Aka Sox",
-                    "B"
-                ],
-                [
-                    "Alisher aka so'x",
-                    "B"
-                ],
-                [
-                    "Nuriddin Aka Sox",
-                    "B"
                 ]
             ]
         },
@@ -526,11 +538,6 @@ JADVAL = {
                 ]
             ]
         },
-        "Ibrohimjon aka": {
-            "lavozim": "Peno supervizor",
-            "region": "Bog'dod, Rishton, Oltiariq, Marg'ilon, Chimyon, Quva",
-            "clients": []
-        },
         "Abbos aka": {
             "lavozim": "Peno agent",
             "region": "Buvayda, Bachqir",
@@ -584,12 +591,17 @@ JADVAL = {
                     "AAA"
                 ]
             ]
+        },
+        "Ibrohimjon aka": {
+            "lavozim": "Peno supervizor",
+            "region": "Bog'dod, Rishton, Oltiariq, Marg'ilon, Chimyon, Quva",
+            "clients": []
         }
     },
     "Payshanba": {
         "Abduqodir aka": {
             "lavozim": "Concrete agent",
-            "region": "Buvayda, Uchko'prik, Bachqir",
+            "region": "Buvayda, Uchko'prik, Sariq qurg'on",
             "clients": [
                 [
                     "Eldor Aka Buvayda",
@@ -632,6 +644,11 @@ JADVAL = {
                     "A"
                 ]
             ]
+        },
+        "Muhammadamin aka": {
+            "lavozim": "Concrete agent",
+            "region": "Qo'qon (region va sinov kuni)",
+            "clients": []
         },
         "Atxamjon aka": {
             "lavozim": "Peno inkassator",
@@ -679,11 +696,6 @@ JADVAL = {
                     "CCA"
                 ]
             ]
-        },
-        "Ibrohimjon aka": {
-            "lavozim": "Peno supervizor",
-            "region": "Pop, Chust, To'raqurg'on, Jomoshuy, Dangara, G'urumsaroy",
-            "clients": []
         },
         "Abbos aka": {
             "lavozim": "Peno agent",
@@ -766,12 +778,17 @@ JADVAL = {
                     "BBA"
                 ]
             ]
+        },
+        "Ibrohimjon aka": {
+            "lavozim": "Peno supervizor",
+            "region": "Pop, Chust, To'raqurg'on, Jomoshuy, Dangara, G'urumsaroy",
+            "clients": []
         }
     },
     "Shanba": {
-        "Abduqodir aka": {
+        "Muhammadamin aka": {
             "lavozim": "Concrete agent",
-            "region": "Yaypan, Beshariq, Goriski, Rapqon",
+            "region": "Goriski, Beshariq",
             "clients": [
                 [
                     "Anvar Aka Oq Changal",
@@ -808,14 +825,6 @@ JADVAL = {
                 [
                     "Axror Aka Sartol Besh Ariq",
                     "B"
-                ],
-                [
-                    "Fayzullo Aka Rapqon",
-                    "A"
-                ],
-                [
-                    "Sardor Aka Yaypan Story Baza",
-                    "A"
                 ],
                 [
                     "Nemat Aka Besh Ariq",
@@ -910,11 +919,6 @@ JADVAL = {
                 ]
             ]
         },
-        "Ibrohimjon aka": {
-            "lavozim": "Peno supervizor",
-            "region": "Beshariq, Goriski, Rapqon, Yaypan",
-            "clients": []
-        },
         "Abbos aka": {
             "lavozim": "Peno agent",
             "region": "Beshariq, Goriski",
@@ -968,6 +972,11 @@ JADVAL = {
                     "AAA"
                 ]
             ]
+        },
+        "Ibrohimjon aka": {
+            "lavozim": "Peno supervizor",
+            "region": "Beshariq, Goriski, Rapqon, Yaypan",
+            "clients": []
         }
     },
     "Yakshanba": {
@@ -1005,6 +1014,20 @@ JADVAL = {
                 ],
                 [
                     "Aziz Aka Qum Tepa",
+                    "A"
+                ]
+            ]
+        },
+        "Muhammadamin aka": {
+            "lavozim": "Concrete agent",
+            "region": "Yaypan, Rapqon",
+            "clients": [
+                [
+                    "Fayzullo Aka Rapqon",
+                    "A"
+                ],
+                [
+                    "Sardor Aka Yaypan Story Baza",
                     "A"
                 ]
             ]
@@ -1072,11 +1095,6 @@ JADVAL = {
                 ]
             ]
         },
-        "Ibrohimjon aka": {
-            "lavozim": "Peno supervizor",
-            "region": "Namangan",
-            "clients": []
-        },
         "Abbos aka": {
             "lavozim": "Peno agent",
             "region": "Rapqon, Yaypan",
@@ -1142,6 +1160,11 @@ JADVAL = {
                     "AAA"
                 ]
             ]
+        },
+        "Ibrohimjon aka": {
+            "lavozim": "Peno supervizor",
+            "region": "Namangan",
+            "clients": []
         }
     }
 }

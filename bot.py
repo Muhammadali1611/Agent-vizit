@@ -1284,19 +1284,60 @@ async def kunlik_yuborish(context):
             logging.warning("Xabar yuborilmadi (%s): %s", oluvchi, e)
 
 
+async def bir_marta_yuborish():
+    """Railway cron (har kuni 8:20) uchun: jadvalni yuboradi va dastur tugaydi.
+    Webhook'ga tegmaydi — faqat send_message ishlatadi."""
+    from telegram import Bot
+    matn = hisobot(kun_nomi(0), sana(0))
+    async with Bot(BOT_TOKEN) as bot:
+        for oluvchi in OLUVCHILAR:
+            try:
+                for qism in bolib_yubor(matn):
+                    await bot.send_message(chat_id=oluvchi, text=qism, parse_mode=ParseMode.HTML)
+            except Exception as e:
+                logging.warning("Xabar yuborilmadi (%s): %s", oluvchi, e)
+    logging.info("Kunlik jadval yuborildi, dastur tugadi.")
+
+
 def main():
+    import sys
+    import asyncio
+
+    # 1) Cron rejimi: faqat 8:20 xabarini yuborib chiqib ketadi
+    if "--send-today" in sys.argv or os.environ.get("BOT_MODE") == "send":
+        asyncio.run(bir_marta_yuborish())
+        return
+
     app = Application.builder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("bugun", bugun))
     app.add_handler(CommandHandler("ertaga", ertaga))
     app.add_handler(CommandHandler("hafta", hafta))
-    app.job_queue.run_daily(
-        kunlik_yuborish,
-        time=time(hour=SOAT, minute=DAQIQA, tzinfo=TZ),
-        name="kunlik_jadval",
-    )
-    logging.info("Bot ishga tushdi. Kunlik yuborish: %02d:%02d (Toshkent)", SOAT, DAQIQA)
-    app.run_polling(allowed_updates=Update.ALL_TYPES)
+
+    domain = os.environ.get("RAILWAY_PUBLIC_DOMAIN")
+    if domain:
+        # 2) Webhook rejimi (Railway, "uxlash" yoqilgan): xabar kelganda uyg'onadi,
+        #    qolgan vaqt uxlaydi -> pul deyarli ketmaydi. 8:20 xabarini cron servis yuboradi.
+        url_path = "tg-" + BOT_TOKEN.split(":")[0]
+        secret = BOT_TOKEN.split(":")[-1][:32].replace("-", "_")
+        logging.info("Bot webhook rejimida: https://%s/%s", domain, url_path)
+        app.run_webhook(
+            listen="0.0.0.0",
+            port=int(os.environ.get("PORT", "8080")),
+            url_path=url_path,
+            webhook_url=f"https://{domain}/{url_path}",
+            secret_token=secret,
+            allowed_updates=Update.ALL_TYPES,
+        )
+    else:
+        # 3) Lokal/oddiy rejim: polling + 8:20 dagi avtomatik yuborish
+        app.job_queue.run_daily(
+            kunlik_yuborish,
+            time=time(hour=SOAT, minute=DAQIQA, tzinfo=TZ),
+            name="kunlik_jadval",
+        )
+        logging.info("Bot ishga tushdi. Kunlik yuborish: %02d:%02d (Toshkent)", SOAT, DAQIQA)
+        app.run_polling(allowed_updates=Update.ALL_TYPES)
 
 
 if __name__ == "__main__":

@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 AGENTLAR HUDUD BOTI
-Har kuni soat 8:20 (Toshkent) da haftalik hudud jadvalini RASM qilib yuboradi
-(bugungi kun yashil bilan belgilanadi) va tagiga bugungi hududlarni matn bilan yozadi.
+Har kuni soat 8:20 (Toshkent) da ikkita alohida xabar yuboradi:
+SUXOY agentlari va PENO PLAST agentlari — har biri RASM (bugungi kun yashil)
+va tagida bugungi hududlar matni bilan. Guruhlar: jadval_rasm.py ichidagi GURUHLAR.
 Buyruqlar: /start /bugun /ertaga /hafta
 Hududlarni o'zgartirish: jadval_rasm.py ichidagi REGION qismi.
 """
@@ -18,7 +19,7 @@ from telegram import Update, Bot
 from telegram.constants import ParseMode
 from telegram.ext import Application, CommandHandler
 
-from jadval_rasm import KUNLAR, AGENTLAR, REGION, rasm_yasash
+from jadval_rasm import KUNLAR, REGION, GURUHLAR, rasm_yasash
 
 # ============ SOZLAMALAR ============
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "8950532180:AAEHDGIcobPIr2gMm0zw4c9j27wa5K8BArE")
@@ -44,20 +45,21 @@ def sana(offset=0):
     return (datetime.now(TZ) + timedelta(days=offset)).strftime("%d.%m.%Y")
 
 
-def matn(kun, sana_txt):
-    bosh = f"<b>{kun.upper()} | {sana_txt}</b>\n"
+def matn(kun, sana_txt, guruh, agentlar):
+    bosh = f"<b>{guruh} | {kun.upper()} | {sana_txt}</b>\n"
     if kun == "Juma":
         return bosh + "\nBugun dam olish kuni."
-    qator = [bosh + "Bugungi agentlar hududi:", ""]
-    for i, ag in enumerate(AGENTLAR, 1):
+    qator = [bosh + f"Bugungi {guruh.lower()} agentlari hududi:", ""]
+    for i, ag in enumerate(agentlar, 1):
         qator.append(f"{i}. <b>{ag}</b> — {REGION[ag].get(kun, '-')}")
     return "\n".join(qator)
 
 
 async def rasm_yubor(bot, chat_id, offset=0):
     kun, s = kun_nomi(offset), sana(offset)
-    await bot.send_photo(chat_id=chat_id, photo=rasm_yasash(kun, s),
-                         caption=matn(kun, s), parse_mode=ParseMode.HTML)
+    for guruh, agentlar in GURUHLAR:
+        await bot.send_photo(chat_id=chat_id, photo=rasm_yasash(kun, s, agentlar, guruh),
+                             caption=matn(kun, s, guruh, agentlar), parse_mode=ParseMode.HTML)
 
 
 async def start(update, context):
@@ -79,9 +81,10 @@ async def ertaga(update, context):
 
 
 async def hafta(update, context):
-    await context.bot.send_photo(chat_id=update.effective_chat.id,
-                                 photo=rasm_yasash(None, None),
-                                 caption="Agentlar haftalik hudud jadvali")
+    for guruh, agentlar in GURUHLAR:
+        await context.bot.send_photo(chat_id=update.effective_chat.id,
+                                     photo=rasm_yasash(None, None, agentlar, guruh),
+                                     caption=f"{guruh} agentlari haftalik hudud jadvali")
 
 
 async def hammaga_yubor(bot, oluvchilar):

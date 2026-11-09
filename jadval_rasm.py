@@ -7,6 +7,12 @@ from PIL import Image, ImageDraw, ImageFont
 KUNLAR = ["Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba", "Yakshanba"]
 AGENTLAR = ["Abduqodir aka", "Ibrohimjon aka", "Abdumalik aka", "Atxamjon aka", "Abbos aka", "Davronjon aka"]
 
+# Guruhlar: har bir guruhga alohida rasm + matn yuboriladi
+GURUHLAR = [
+    ("SUXOY", ["Abduqodir aka", "Abdumalik aka"]),
+    ("PENO PLAST", ["Ibrohimjon aka", "Atxamjon aka", "Abbos aka", "Davronjon aka"]),
+]
+
 REGION = {
  "Abduqodir aka": {"Dushanba":"Dang'ara, Oqjar, G'urumsaroy","Seshanba":"Pop, To'raqo'rg'on, Jomashuy","Chorshanba":"Tojikiston","Payshanba":"Uchko'prik, Buvayda, Sariqo'rg'on","Shanba":"Goriski, Beshariq, Yaypan","Yakshanba":"Shahar"},
  "Ibrohimjon aka": {"Dushanba":"Marg'ilon, Oltiariq, Bog'dod","Seshanba":"Chimyon, Vodil, Avval (ulgursa Marg'ilon)","Chorshanba":"Rishton, Bog'dod (ulgursa Marg'ilon)","Payshanba":"So'x","Shanba":"Buvayda, Bachqir, Yangiqo'rg'on, Uchko'prik","Yakshanba":"Andijon"},
@@ -35,7 +41,13 @@ def _wrap(d, text, font, w):
     if cur: lines.append(cur)
     return lines
 
-def rasm_yasash(bugun: str, sana: str):
+def _fit(d, text, size, bold, maxw):
+    while size > 10 and d.textlength(text, font=F(size, bold)) > maxw:
+        size -= 1
+    return F(size, bold)
+
+def rasm_yasash(bugun: str, sana: str, agentlar=None, guruh="AGENTLAR"):
+    AGENTLAR_ = agentlar or AGENTLAR
     S = 2  # sifat uchun masshtab
     pad, dayw, colw = 24*S, 150*S, 210*S
     f_title, f_sub, f_head, f_day, f_cell, f_cellb = F(30*S,True), F(17*S), F(17*S,True), F(17*S,True), F(15*S), F(15*S,True)
@@ -46,27 +58,29 @@ def rasm_yasash(bugun: str, sana: str):
     for k in KUNLAR:
         mx=1
         if k!="Juma":
-            for a in AGENTLAR:
+            for a in AGENTLAR_:
                 mx=max(mx,len(_wrap(tmp,REGION[a].get(k,"-"),f_cellb if k==bugun else f_cell,colw-2*cpad)))
         heights.append(max(52*S, mx*lh+2*cpad))
-    W = pad*2+dayw+colw*len(AGENTLAR)
+    W = pad*2+dayw+colw*len(AGENTLAR_)
     titleh, headh = 96*S, 50*S
     H = pad+titleh+headh+sum(heights)+pad+30*S
     img = Image.new("RGB",(W,H),WHITE); d = ImageDraw.Draw(img)
 
     # sarlavha
     d.rounded_rectangle([pad,pad,W-pad,pad+titleh-12*S],radius=14*S,fill=NAVY)
-    d.text((W/2,pad+32*S),"AGENTLAR HAFTALIK HUDUD JADVALI",font=f_title,fill=WHITE,anchor="mm")
-    d.text((W/2,pad+66*S),f"Bugun: {bugun}  |  {sana}" if sana else "Haftalik ko'rinish",font=f_sub,fill="#BFD3EC",anchor="mm")
+    sarlavha = f"{guruh} AGENTLARI"
+    pastki = (f"Haftalik hudud jadvali  |  Bugun: {bugun}  |  {sana}" if sana else "Haftalik hudud jadvali")
+    d.text((W/2,pad+32*S),sarlavha,font=_fit(d,sarlavha,30*S,True,W-2*pad-24*S),fill=WHITE,anchor="mm")
+    d.text((W/2,pad+66*S),pastki,font=_fit(d,pastki,17*S,False,W-2*pad-24*S),fill="#BFD3EC",anchor="mm")
 
     x0, y = pad, pad+titleh
     # ustun sarlavhalari
     d.rectangle([x0,y,x0+dayw,y+headh],fill=HEAD,outline=GRID)
     d.text((x0+dayw/2,y+headh/2),"Kun",font=f_head,fill=WHITE,anchor="mm")
-    for i,a in enumerate(AGENTLAR):
+    for i,a in enumerate(AGENTLAR_):
         cx=x0+dayw+i*colw
         d.rectangle([cx,y,cx+colw,y+headh],fill=HEAD,outline=GRID)
-        d.text((cx+colw/2,y+headh/2),a,font=f_head,fill=WHITE,anchor="mm")
+        d.text((cx+colw/2,y+headh/2),a,font=_fit(d,a,17*S,True,colw-16*S),fill=WHITE,anchor="mm")
     y+=headh
 
     for ri,(k,h) in enumerate(zip(KUNLAR,heights)):
@@ -76,7 +90,7 @@ def rasm_yasash(bugun: str, sana: str):
         dtxt = WHITE if is_today else (RED if is_dam else TXT)
         d.rectangle([x0,y,x0+dayw,y+h],fill=dbg,outline=GRID)
         d.text((x0+dayw/2,y+h/2),("▶ " if is_today else "")+k,font=f_day,fill=dtxt,anchor="mm")
-        for i,a in enumerate(AGENTLAR):
+        for i,a in enumerate(AGENTLAR_):
             cx=x0+dayw+i*colw
             d.rectangle([cx,y,cx+colw,y+h],fill=rowbg,outline=GRID)
             if is_dam:

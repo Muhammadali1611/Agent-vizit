@@ -16,7 +16,7 @@ GURUHLAR = [
 REGION = {
  "Abduqodir aka": {"Dushanba":"Dang'ara, Oqjar, G'urumsaroy","Seshanba":"Pop, To'raqo'rg'on, Jomashuy","Chorshanba":"Tojikiston","Payshanba":"Uchko'prik, Buvayda, Sariqo'rg'on","Shanba":"Goriski, Beshariq, Yaypan","Yakshanba":"Shahar"},
  "Ibrohimjon aka": {"Dushanba":"Marg'ilon, Oltiariq, Bog'dod","Seshanba":"Chimyon, Vodil, Avval (ulgursa Marg'ilon)","Chorshanba":"Rishton, Bog'dod (ulgursa Marg'ilon)","Payshanba":"So'x","Shanba":"Buvayda, Bachqir, Yangiqo'rg'on, Uchko'prik","Yakshanba":"Andijon"},
- "Abdumalik aka": {"Dushanba":"Bog'dod","Seshanba":"Rishton","Chorshanba":"So'x","Payshanba":"Oltiariq, Chimyon, Vodil","Shanba":"Marg'ilon, Yozyovon","Yakshanba":"Yangiqo'rg'on, Bachqir"},
+ "Abdumalik aka": {"Dushanba":"Bog'dod, Rishton","Seshanba":"Buvayda, Yangiqo'rg'on, Bachqir","Chorshanba":"So'x","Payshanba":"Oltiariq, Chimyon, Vodil","Shanba":"Marg'ilon, Yozyovon","Yakshanba":"Rapqon, Yaypan"},
  "Atxamjon aka": {"Dushanba":"Bog'dod, Rishton, Oltiariq","Seshanba":"Marg'ilon, Chimyon, Quva","Chorshanba":"Yaypan, Beshariq, Goriski, Rapqon","Payshanba":"Andijon","Shanba":"Dang'ara, G'urumsaroy, Pop, Chust, To'raqo'rg'on, Namangan","Yakshanba":"Uchko'prik, Buvayda, Bachqir, Yangiqo'rg'on"},
  "Abbos aka": {"Dushanba":"Dang'ara, G'urumsaroy","Seshanba":"Pop, Chust, To'raqo'rg'on, Jomashuy","Chorshanba":"Buvayda, Bachqir","Payshanba":"Uchko'prik, Yangiqo'rg'on","Shanba":"Beshariq, Goriski","Yakshanba":"Rapqon, Yaypan"},
  "Davronjon aka": {"Dushanba":"Paxtaobod, Izboskan, Poytug'","Seshanba":"Bo'z, Shahrixon, Asaka, Andijon shahar","Chorshanba":"Qo'qon shahar","Payshanba":"Norin, Norin kappa, Uchqo'rg'on, Chinobod (Baliqchi)","Shanba":"Quva, Marhamat, Toshloq","Yakshanba":"Oltiariq"},

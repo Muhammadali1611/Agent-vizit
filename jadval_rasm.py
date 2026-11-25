@@ -5,21 +5,22 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 
 KUNLAR = ["Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba", "Yakshanba"]
-AGENTLAR = ["Abduqodir aka", "Ibrohimjon aka", "Abdumalik aka", "Atxamjon aka", "Abbos aka", "Davronjon aka"]
+AGENTLAR = ["Abduqodir aka", "Ibrohimjon aka", "Abdumalik aka", "Atxamjon aka", "Abbos aka", "Davronjon aka", "Abdulloh aka"]
 
 # Guruhlar: har bir guruhga alohida rasm + matn yuboriladi
 GURUHLAR = [
     ("SUXOY", ["Abduqodir aka", "Abdumalik aka"]),
-    ("PENO PLAST", ["Ibrohimjon aka", "Atxamjon aka", "Abbos aka", "Davronjon aka"]),
+    ("PENO PLAST", ["Ibrohimjon aka", "Atxamjon aka", "Abbos aka", "Davronjon aka", "Abdulloh aka"]),
 ]
 
 REGION = {
  "Abduqodir aka": {"Dushanba":"Dang'ara, Oqjar, G'urumsaroy","Seshanba":"Pop, To'raqo'rg'on, Jomashuy","Chorshanba":"Tojikiston","Payshanba":"Uchko'prik, Buvayda, Sariqo'rg'on","Shanba":"Goriski, Beshariq, Yaypan","Yakshanba":"Shahar"},
- "Ibrohimjon aka": {"Dushanba":"Marg'ilon, Oltiariq, Bog'dod","Seshanba":"Chimyon, Vodil, Avval (ulgursa Marg'ilon)","Chorshanba":"Rishton, Bog'dod (ulgursa Marg'ilon)","Payshanba":"So'x","Shanba":"Buvayda, Bachqir, Yangiqo'rg'on, Uchko'prik","Yakshanba":"Andijon"},
+ "Ibrohimjon aka": {"Dushanba":"Ofisda (majlis)","Seshanba":"Rapqon, Goriski, Beshariq, Yaypan","Chorshanba":"Buvayda, Bachqir, Yangiqo'rg'on, Uchko'prik","Payshanba":"Rishton, Bog'dod","Shanba":"Ofisda","Yakshanba":"Marg'ilon, Oltiariq, Chimyon"},
  "Abdumalik aka": {"Dushanba":"Bog'dod, Rishton","Seshanba":"Buvayda, Yangiqo'rg'on, Bachqir","Chorshanba":"So'x","Payshanba":"Oltiariq, Chimyon, Vodil","Shanba":"Marg'ilon, Yozyovon","Yakshanba":"Rapqon, Yaypan"},
  "Atxamjon aka": {"Dushanba":"Bog'dod, Rishton, Oltiariq","Seshanba":"Marg'ilon, Chimyon, Quva","Chorshanba":"Yaypan, Beshariq, Goriski, Rapqon","Payshanba":"Andijon","Shanba":"Dang'ara, G'urumsaroy, Pop, Chust, To'raqo'rg'on, Namangan","Yakshanba":"Uchko'prik, Buvayda, Bachqir, Yangiqo'rg'on"},
  "Abbos aka": {"Dushanba":"Dang'ara, G'urumsaroy","Seshanba":"Pop, Chust, To'raqo'rg'on, Jomashuy","Chorshanba":"Buvayda, Bachqir","Payshanba":"Uchko'prik, Yangiqo'rg'on","Shanba":"Beshariq, Goriski","Yakshanba":"Rapqon, Yaypan"},
- "Davronjon aka": {"Dushanba":"Paxtaobod, Izboskan, Poytug'","Seshanba":"Bo'z, Shahrixon, Asaka, Andijon shahar","Chorshanba":"Qo'qon shahar","Payshanba":"Norin, Norin kappa, Uchqo'rg'on, Chinobod (Baliqchi)","Shanba":"Quva, Marhamat, Toshloq","Yakshanba":"Oltiariq"},
+ "Davronjon aka": {"Dushanba":"Paxtaobod, Izboskan, Poytug', Shahrixon","Seshanba":"Rishton (0,5)","Chorshanba":"Quva, Toshloq","Payshanba":"Oltiariq","Shanba":"Rishton (0,5), Chimyon","Yakshanba":"Shahar"},
+ "Abdulloh aka": {"Dushanba":"—","Seshanba":"Bog'dod (0,5)","Chorshanba":"Marg'ilon, Farg'ona (xanting)","Payshanba":"So'x","Shanba":"Bog'dod (0,5)","Yakshanba":"Marg'ilon, Vodil, Avval"},
 }
 
 _D = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts")
